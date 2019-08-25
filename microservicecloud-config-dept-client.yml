@@ -5,29 +5,28 @@ spring:
 --- 
 server:
   port: 8001
-spring: 
-   profiles: dev
-   application: 
-    name: microservicecloud-config-dept-client
+spring:
+   application:
+    name: microservicecloud-dept
    datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: org.gjt.mm.mysql.Driver
-    url: jdbc:mysql://localhost:3306/cloudDB01
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
+    url: jdbc:mysql://localhost:3306/cloudDB01              # 数据库名称
     username: root
     password: root
     dbcp2:
-      min-idle: 5
-      initial-size: 5
-      max-total: 5
+      min-idle: 5                                           # 数据库连接池的最小维持连接数
+      initial-size: 5                                       # 初始化连接数
+      max-total: 5                                          # 最大连接数
       max-wait-millis: 200 
 mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml
-  type-aliases-package: com.itxiaoyu_peng.entity
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: com.itxiaoyu_peng.entity   # 所有Entity别名类所在包
   mapper-locations:
   - classpath:mybatis/mapper/**/*.xml
  
 eureka: 
-  client: #�ͻ���ע���eureka�����б���
+  client: #客户端注册进eureka服务列表内
     service-url: 
       defaultZone: http://eureka7001.com:7001/eureka
   instance:
@@ -42,31 +41,30 @@ info:
 ---
 server:
   port: 8001
-spring: 
-   profiles: test
-   application: 
-    name: microservicecloud-config-dept-client
+spring:
+   application:
+    name: microservicecloud-dept
    datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: org.gjt.mm.mysql.Driver
-    url: jdbc:mysql://localhost:3306/cloudDB02
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
+    url: jdbc:mysql://localhost:3306/cloudDB01              # 数据库名称
     username: root
     password: root
     dbcp2:
-      min-idle: 5
-      initial-size: 5
-      max-total: 5
+      min-idle: 5                                           # 数据库连接池的最小维持连接数
+      initial-size: 5                                       # 初始化连接数
+      max-total: 5                                          # 最大连接数
       max-wait-millis: 200  
   
   
 mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml
-  type-aliases-package: com.itxiaoyu_peng.entity
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: com.itxiaoyu_peng.entity   # 所有Entity别名类所在包
   mapper-locations:
   - classpath:mybatis/mapper/**/*.xml
  
 eureka: 
-  client: #�ͻ���ע���eureka�����б���
+  client: #客户端注册进eureka服务列表内
     service-url: 
       defaultZone: http://eureka7001.com:7001/eureka
   instance:
